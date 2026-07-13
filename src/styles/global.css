@@ -1,0 +1,143 @@
+/* ============================================
+   FootyVAR — Global Reset & Tokens
+   Soccer pitch aesthetic: deep green, chalk white,
+   alert yellow for VAR, red for goals/offside
+   ============================================ */
+
+:root {
+  /* Surface */
+  --bg-pitch: #0a4d2a;          /* deep pitch green */
+  --bg-pitch-dark: #062e19;
+  --bg-pitch-mid: #0d5e34;
+  --bg-bleachers: #0a1f12;       /* almost-black-green for night games */
+  --bg-card: rgba(15, 40, 25, 0.85);
+  --bg-card-hover: rgba(20, 50, 30, 0.92);
+  --border-card: rgba(255, 255, 255, 0.12);
+  --border-card-strong: rgba(255, 255, 255, 0.22);
+
+  /* Pitch markings */
+  --chalk: rgba(255, 255, 255, 0.92);
+  --chalk-dim: rgba(255, 255, 255, 0.55);
+
+  /* Alerts */
+  --var-red: #ff3838;            /* VAR alert red */
+  --var-red-glow: rgba(255, 56, 56, 0.55);
+  --goal-yellow: #ffd700;
+  --goal-yellow-glow: rgba(255, 215, 0, 0.6);
+  --speed-cyan: #00d4ff;
+  --speed-orange: #ff6b35;
+
+  /* Text */
+  --text-bright: #ffffff;
+  --text-1: rgba(255, 255, 255, 0.92);
+  --text-2: rgba(255, 255, 255, 0.7);
+  --text-3: rgba(255, 255, 255, 0.5);
+
+  /* Typography */
+  --font-display: 'Sora', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+
+  /* Shadows */
+  --shadow-glow: 0 0 32px rgba(255, 215, 0, 0.4);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  /* Z-index */
+  --z-camera: 1;
+  --z-overlay: 100;
+  --z-nav: 500;
+  --z-toast: 1000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-pitch);
+  color: var(--text-bright);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+a { color: var(--goal-yellow); text-decoration: none; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--goal-yellow);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+img { max-width: 100%; display: block; }
+
+button, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

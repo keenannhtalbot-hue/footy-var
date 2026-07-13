@@ -1,0 +1,166 @@
+/* ============================================
+   Mode Screens — Camera + Controls
+   ============================================ */
+
+.camera-placeholder {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-pitch-dark);
+  border-radius: var(--r-lg);
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 32px;
+  text-align: center;
+  border: 2px dashed var(--border-card-strong);
+}
+
+.placeholder-icon { font-size: 56px; opacity: 0.4; }
+.placeholder-text { color: var(--text-2); font-size: 14px; margin-bottom: 8px; }
+
+/* Video + canvas overlay */
+.var-camera-area,
+.ball-camera-area,
+.kick-camera-area,
+.penalty-camera-area {
+  position: relative;
+  background: #000;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.var-video, .ball-video, .kick-video, .penalty-video,
+.var-canvas, .ball-canvas, .kick-canvas, .penalty-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+video { background: #000; }
+
+/* Goal line control (VAR) */
+.goal-line-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  background: rgba(10, 31, 18, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-bright);
+}
+
+.goal-line-controls input[type="range"] {
+  flex: 1;
+  accent-color: var(--goal-yellow);
+}
+
+.goal-line-controls span {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--goal-yellow);
+  min-width: 30px;
+  text-align: right;
+}
+
+/* VAR result banner */
+.var-result-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--r-md);
+  font-weight: 800;
+  font-family: var(--font-display);
+  animation: pop 360ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.var-result-banner.goal {
+  background: linear-gradient(135deg, #ffd700 0%, #ff9f1c 100%);
+  color: var(--bg-pitch-dark);
+}
+
+.var-result-banner.no-goal {
+  background: var(--bg-card);
+  color: var(--text-1);
+  border: 1px solid var(--var-red);
+}
+
+@keyframes pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.result-icon { font-size: 32px; }
+
+.result-title { font-size: 22px; font-weight: 900; letter-spacing: 0.02em; }
+.result-confidence { font-size: 12px; opacity: 0.8; font-weight: 600; }
+
+/* Speed result card */
+.speed-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.speed-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.speed-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-2);
+  margin-top: 4px;
+}
+
+/* Penalty */
+.penalty-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.fire-btn {
+  width: 100%;
+  font-size: 20px;
+  padding: 20px;
+  margin-top: 16px;
+}
+
+.match-over {
+  text-align: center;
+  padding: 28px;
+}
+
+.match-over h2 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.final-score {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--goal-yellow);
+  margin-bottom: 16px;
+}
